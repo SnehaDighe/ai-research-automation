@@ -8,12 +8,21 @@ An intelligent automation tool that simplifies research by aggregating informati
 
 ## Features
 
-- **Web Scraping**: Extract information from multiple web sources
-- **Query Decomposition**: Break down complex queries into simpler steps
-- **Smart Summarization**: Generate concise, structured summaries
-- **Semantic Search**: Retrieve relevant information efficiently
-- **FastAPI Backend**: High-performance async REST API
+- **Web Scraping**: Extract information from multiple web sources with retry logic and error handling
+- **Query Decomposition**: Break down complex queries into simpler steps using AI
+- **Smart Summarization**: Generate concise, structured summaries from search results
+- **Semantic Search**: Retrieve relevant information efficiently using vector embeddings
+- **FastAPI Backend**: High-performance async REST API with full integration
 - **Docker Support**: Easy containerization and deployment
+
+## API Endpoints
+
+- `GET /health` - Health check
+- `POST /decompose` - Break down complex queries into sub-questions
+- `POST /scrape` - Scrape content from URLs
+- `POST /index` - Index documents for semantic search
+- `POST /search` - Perform semantic search on indexed documents
+- `POST /research` - Complete research workflow (decompose → scrape → search → summarize)
 
 ## Tech Stack
 
@@ -88,6 +97,34 @@ python -m uvicorn app:app --reload
 ```
 
 Access API documentation at: `http://localhost:8000/docs`
+
+### Test the Integration
+
+1. **Health Check**:
+```bash
+curl http://localhost:8000/health
+```
+
+2. **Query Decomposition**:
+```bash
+curl -X POST "http://localhost:8000/decompose" \
+  -H "Content-Type: application/json" \
+  -d '{"query": "What are the latest advancements in AI?"}'
+```
+
+3. **Full Research Workflow**:
+```bash
+curl -X POST "http://localhost:8000/research" \
+  -H "Content-Type: application/json" \
+  -d '{"query": "What are the latest advancements in AI and machine learning?"}'
+```
+
+### Run Standalone Agent
+
+```bash
+cd src
+python main.py
+```
 
 ### Run as CLI Tool
 

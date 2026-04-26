@@ -2,6 +2,10 @@
 
 An intelligent automation tool that simplifies research by aggregating information from the web and generating concise summaries. Break down complex queries into manageable steps and leverage LLM APIs for intelligent response generation.
 
+## Product Case Study
+
+📖 **[Read the full product case study](PRODUCT_CASE_STUDY.md)** - Learn about the problem this solves, technical implementation, and business impact.
+
 ## Features
 
 - **Web Scraping**: Extract information from multiple web sources
